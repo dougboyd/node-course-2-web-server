@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 
 var app = express();
 
-const siteUp = false;
+const siteUp = true;
 
 // Partials
 hbs.registerPartials(__dirname + '/views/partials');
@@ -54,6 +54,14 @@ app.get('/', (req, res) => {
         __dirname
     }
     res.render('home.hbs', incomingVars);
+});
+
+app.get('/projects', (req, res) => {
+    var incomingVars = {
+        pageTitle: 'Projects',
+        websiteName: 'Doug\'s Great New Structure',
+    }
+    res.render('projects.hbs', incomingVars);
 });
 
 app.get('/json', (req, res) => {
